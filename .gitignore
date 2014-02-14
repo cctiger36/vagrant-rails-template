@@ -1,0 +1,6 @@
+chef/cookbooks/
+Berksfile.lock
+.vagrant
+.chef
+*.swp
+*.swo
