@@ -64,6 +64,7 @@ node['project']['databases'].each do |database|
       username: 'root',
       password: node['mysql']['server_root_password']
     )
+    encoding "utf8"
     action :create
   end
 end
