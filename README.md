@@ -2,6 +2,8 @@
 
 Vagrant VM template for rails project development.
 
+Only tested under OSX 10.9.2.
+
 # Usage
 
 Clone this repository:

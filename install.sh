@@ -1,5 +1,13 @@
 #!/usr/bin/env sh
 
+gcc 2> /dev/null
+
+if [ $( xcode-select -p ) != "/Applications/Xcode.app/Contents/Developer" ]; then
+  echo "Please install Xcode first."
+  open "https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12"
+  exit 1
+fi
+
 if ! type "vagrant" > /dev/null; then
   echo "Please install Vagrant first."
   exit 1
