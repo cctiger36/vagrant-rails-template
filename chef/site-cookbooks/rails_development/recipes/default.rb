@@ -78,6 +78,10 @@ git node['project']['app_home'] do
   not_if "ls #{node['project']['app_home']}/.git"
 end
 
+user_execute "update bundler" do
+  command "rvm #{node['bikkuri']['ruby_version']}@bikkuri exec gem update bundler"
+end
+
 user_execute "bundle install" do
   command "cd #{node['project']['app_home']}; rvm #{node['project']['ruby_version']}@project exec bundle"
 end
