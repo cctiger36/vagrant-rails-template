@@ -1,5 +1,6 @@
 default['project']['user'] = "vagrant"
 default['project']['group'] = "vagrant"
+default['project']['email'] = "EMAIL"
 default['project']['home'] = "/home/vagrant"
 default['project']['trust_local_sshkeys'] = "yes"
 
@@ -11,4 +12,4 @@ default['project']['gemset'] = "GEMSET_NAME"
 default['project']['packages'] = %w[curl memcached redis-server imagemagick libxslt-dev libxml2-dev build-essential libmagickwand-dev vim]
 default['project']['databases'] = %w[DATABASE_NAMES]
 
-default['project']['ruby_version'] = "2.0.0"
+default['project']['ruby_version'] = "2.1.2"

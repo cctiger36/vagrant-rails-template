@@ -5,4 +5,4 @@ cookbook 'git'
 cookbook 'mysql'
 cookbook 'database'
 
-cookbook 'rails_development', path: './chef/site-cookbooks/rails_development'
+cookbook 'Rails Development', path: './chef/site-cookbooks/rails_development'

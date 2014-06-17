@@ -14,7 +14,7 @@ if ! type "vagrant" > /dev/null; then
 fi
 
 if ! vagrant plugin list | grep -q 'vagrant-berkshelf'; then
-  vagrant plugin install vagrant-berkshelf
+  vagrant plugin install vagrant-berkshelf --plugin-version '>= 2.0.1'
 fi
 
 if ! vagrant plugin list | grep -q 'vagrant-omnibus'; then

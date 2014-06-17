@@ -10,7 +10,7 @@ user_execute "install rvm" do
 end
 
 user_execute "install and setup ruby" do
-  command "rvm install #{node['project']['ruby_version']}; rvm use #{node['project']['ruby_version']}; rvm gemset create #{node['project']['gemset']}; rvm use #{node['project']['ruby_version']}@project --default"
+  command "rvm install #{node['project']['ruby_version']}; rvm use #{node['project']['ruby_version']}; rvm gemset create #{node['project']['gemset']}; rvm use #{node['project']['ruby_version']} --default"
   not_if "rvm list | grep -q '#{node['project']['ruby_version']}'"
 end
 
@@ -54,7 +54,7 @@ file "#{node['project']['home']}/.ssh/id_rsa.pub" do
 end
 
 execute "git-config for vagrant" do
-  command "sudo -u vagrant -H git config --global user.name '#{node['project']['host_username']}'; sudo -u vagrant -H git config --global user.email '#{node['project']['host_username']}@drecom.co.jp'"
+  command "sudo -u vagrant -H git config --global user.name '#{node['project']['host_username']}'; sudo -u vagrant -H git config --global user.email '#{node['project']['email']}'"
 end
 
 node['project']['databases'].each do |database|
@@ -79,11 +79,11 @@ git node['project']['app_home'] do
 end
 
 user_execute "update bundler" do
-  command "rvm #{node['bikkuri']['ruby_version']}@bikkuri exec gem update bundler"
+  command "rvm #{node['project']['ruby_version']} exec gem update bundler"
 end
 
 user_execute "bundle install" do
-  command "cd #{node['project']['app_home']}; rvm #{node['project']['ruby_version']}@project exec bundle"
+  command "cd #{node['project']['app_home']}; rvm #{node['project']['ruby_version']} exec bundle"
 end
 
 bundle_exec "migrate" do
